@@ -2,7 +2,7 @@
 // PROVIDES: A class for a node in a linked list, and list manipulation
 // functions
 //source: http://www.cs.colorado.edu/~main/chapter5/
-#ifndef NODE_H  
+#ifndef NODE_H
 #define NODE_H
 #include <cstdlib> // Provides size_t and NULL
 
@@ -13,8 +13,10 @@ class node{
     typedef double value_type;
     // CONSTRUCTOR
     node(const value_type& init_data = value_type( ),
-        node* init_link = NULL){ 
-        data_field = init_data; link_field = init_link; }
+        node* init_link = NULL){
+        data_field = init_data; link_field = init_link;
+      }
+
 
     // Member functions to set the data and link fields:
     void set_data(const value_type& new_data) { data_field = new_data; }
@@ -35,8 +37,8 @@ class node{
 
 // FUNCTIONS for the linked list toolkit
 std::size_t list_length(const node* head_ptr);
-void list_head_insert(node*& head_ptr, const node::value_type& entry); 
-void list_insert(node* previous_ptr, const node::value_type& entry);  
+void list_head_insert(node*& head_ptr, const node::value_type& entry);
+void list_insert(node* previous_ptr, const node::value_type& entry);
 node* list_search(node* head_ptr, const node::value_type& target);
 const node* list_search
 (const node* head_ptr, const node::value_type& target);

@@ -8,12 +8,24 @@
 #include "node.h"
 #include <cassert>    // Provides assert
 #include <cstdlib>    // Provides NULL and size_t
+#include <iostream>
 using namespace std;
 
 
-size_t list_length(const node* head_ptr){}
+size_t list_length(const node* head_ptr){
+  size_t length = 0;
 
-void list_head_insert(node*& head_ptr, const node::value_type& entry){}
+  for(const node* cursor = head_ptr; cursor != NULL; cursor = cursor->link())
+  {
+    length++;
+  }
+  return length;
+}
+
+void list_head_insert(node*& head_ptr, const node::value_type& entry){
+  node *new_node = new node(entry,head_ptr);
+  head_ptr = new_node;
+}
 
 void list_insert(node* previous_ptr, const node::value_type& entry) {}
 
@@ -32,5 +44,3 @@ void list_remove(node* previous_ptr){}
 void list_clear(node*& head_ptr){}
 
 void list_copy(const node* source_ptr, node*& head_ptr, node*& tail_ptr) {}
-
-
