@@ -27,9 +27,31 @@ void list_head_insert(node*& head_ptr, const node::value_type& entry){
   head_ptr = new_node;
 }
 
-void list_insert(node* previous_ptr, const node::value_type& entry) {}
+void list_insert(node* previous_ptr, const node::value_type& entry) {
+  std::cout << "list_insert called" << std::endl;
+  node* t = new node;
+  t->set_data(entry);
+  previous_ptr->set_link(t);
+  //test it has worked
+  std::cout << "TEST SHOULD PRINT 1.5" << std::endl;
+  std::cout << "PREVIOUS NODE: " << previous_ptr->data() << " inserted node: " << (previous_ptr->link())->data() << std::endl;
+}
 
-node* list_search(node* head_ptr, const node::value_type& target){}
+node* list_search(node* head_ptr, const node::value_type& target){
+  //we're going to find the node and return that
+  std::cout << "list_search works \n";
+  node* cursor;
+  for(node* cursor = head_ptr; cursor != NULL; cursor = cursor->link())
+  {
+    std::cout << cursor->data() << std::endl;
+    if(cursor->data() == target)
+    {
+      std::cout << "Returning cursor" << std::endl;
+      return cursor;
+    }
+  }
+  return cursor;
+}
 
 const node* list_search(const node* head_ptr, const node::value_type& target){}
 
